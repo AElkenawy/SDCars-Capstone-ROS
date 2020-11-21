@@ -4,24 +4,25 @@
 Integration of Autonomous vehicle subsystems of perception, localization, planning and control into one system using ROS (Robot Operating System) middleware. The vehicle should be able to drive around the test track using waypoints navigation while obeying traffic rules (and avoiding obstacles).
 
 ## Project overview
-The aim of Autonomous vehicle _drive-by-wire (dbw)_ system configuration is to generate acceleration, braking and steering commands based on sensor measurement. The core elements of the autonomous vehicle system are perception, localization, planning and control subsystems.
-<img src="./imgs/1_Architecture overview.png" alt="System Subsystems" width="800" height="550"> 
+The aim of _drive-by-wire (dbw)_ system configuration is to generate acceleration, braking and steering commands based on sensor measurement. The core elements of the autonomous vehicle system are perception, localization, planning and control subsystems.
+
 <img src="./imgs/1_Architecture overview.png" alt="System Subsystems" width="800">
 
 
-The system architecture is based on open-source software for self-driving vehicles of _Autoware_. ROS nodes and topics used to implement core functionality of the autonomous vehicle system of waypoint following, traffic light detection and control.
-<img src="./imgs/2_ROS Tpcs Nds.png" alt="ROS topics and nodes" width="800" height="550"> 
+The system architecture is based on open-source software for self-driving vehicles of _Autoware_. ROS nodes and topics used to implement core functionality of the autonomous vehicle system of waypoint following, traffic light detection and control are illustrated as
+
 <img src="./imgs/2_ROS Tpcs Nds.png" alt="ROS topics and nodes" width="800"> 
 
 
 Nodes of interest in this project are:
-1. Wayppoint Updater Node **(Planning subsystem)** `./ros/src/waypoint_updater/waypoint_updater.py`
+1. Waypoint Updater Node **(Planning subsystem)** `./ros/src/waypoint_updater/waypoint_updater.py`
 <img src="./imgs/3_WPUpdate node.png" alt="Wayppoint Updater Node"> 
 
 2. DBW/drive-by-wire Node  **(Control subsystem)** `./ros/src/twist_controller/dbw_node.py`
 <img src="./imgs/4_DBW node.png" alt="DBW Node"> 
 
-3. Traffic Light Detection Node **(Perception subsystem)** `./ros/src/tl_detector/tl_detector.py`. Traffic Light Classifier is a SSD (Single Shot MultiBox Detector) CNN model. `./ros/src/tl_detector/light_classification/tl_classifier.py`
+3. Traffic Light Detection Node **(Perception subsystem)** `./ros/src/tl_detector/tl_detector.py`. 
+Traffic Light Classifier is a SSD (Single Shot MultiBox Detector) CNN model. `./ros/src/tl_detector/light_classification/tl_classifier.py`
 <img src="./imgs/5_TLDetect node.png" alt="Traffic Light Detection Node"> 
 
 ### Basic Build Instructions
